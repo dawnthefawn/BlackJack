@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace blackjack
 {
-    class Card
+    public class Card
     {
         //assign value to card using rank from DeckGenerator Class.
        public int Value(int rank)
