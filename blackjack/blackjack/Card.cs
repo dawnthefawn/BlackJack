@@ -16,36 +16,46 @@ namespace DeckOfCards
         public int value;
         private string tag;
 
+        public void Init(int r, string s)
+        {
+            value = 0;
+            rank = r;
+            suit = s;
+            value = Value(r);
+            face = Face(r, s);
+        
+        
+        }
+
         //assign value to card using rank from DeckGenerator Class.
        public int Value(int r)
         {
-            rank = r;
-            value = 0;
-            if (rank < 11)
-            {
-                switch (rank.ToString())
+                if (rank < 11)
                 {
-                    case "1":
-                        tag = "A";
-                        break;
-                    default:
-                        tag = r.ToString();
-                        break;
+                    switch (rank.ToString())
+                    {
+                        case "1":
+                            tag = "A";
+                            break;
+                        default:
+                            tag = r.ToString();
+                            break;
 
+                    }
+                    value = rank;
                 }
-                value = rank;
-            }
-            else if(rank>10)
-            {
-                value = 10;
-                switch(rank.ToString())
+                else if (rank > 10)
                 {
-                    case "11": tag = "J"; break;
-                    case "12": tag = "Q"; break;
-                    case "13": tag = "K"; break;
-                    
+                    value = 10;
+                    switch (rank.ToString())
+                    {
+                        case "11": tag = "J"; break;
+                        case "12": tag = "Q"; break;
+                        case "13": tag = "K"; break;
+
+                    }
                 }
-            }
+            
             return value;
         }
 

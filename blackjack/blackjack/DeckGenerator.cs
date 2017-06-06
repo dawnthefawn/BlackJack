@@ -31,8 +31,7 @@ namespace DeckOfCards
                     //test
 
                         deck[index] = new Card();
-                        deck[index].value = deck[index].Value(rank);
-                        deck[index].face = deck[index].Face(rank, suit);
+                        deck[index].Init(rank, suit);
 
                         index++;
                     }

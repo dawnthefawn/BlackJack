@@ -12,9 +12,9 @@ namespace DeckOfCards
     {
 
         //call using number of decks, if you want to play with 10 decks for some reason :D
-        public Card[] shuffler(Card[] unshuffled, int numberofdecks)
+        public Card[] shuffler(Card[] unshuffled)
         {
-            int index = numberofdecks * 52;
+            int index = unshuffled.Length;
             Random r = new Random();
             //            while(index>1)
             //                {

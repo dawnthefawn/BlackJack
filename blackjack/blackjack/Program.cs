@@ -12,23 +12,11 @@ namespace DeckOfCards
         public static void Main(string[] args)
         {
             Console.WriteLine("Welcome to Blackjack!");
-            
-            Console.WriteLine("Press ESC to stop");
-            
+
+            BlackjackDealer dealer = new BlackjackDealer();
+            dealer.Initialize();
 
 
-            //TEST
-            while (!(Console.KeyAvailable && Console.ReadKey(true).Key == ConsoleKey.Escape))
-            {
-                var generator = new DeckGenerator();
-                var shuffler = new Shuffle();
-                Card[] deck = shuffler.shuffler(generator.generatedeck(),1);
-                foreach (var c in deck)
-                {
-                    Console.WriteLine(c.face);
-                }
-                System.Threading.Thread.Sleep(10000000);
-            }
         }
 
 
