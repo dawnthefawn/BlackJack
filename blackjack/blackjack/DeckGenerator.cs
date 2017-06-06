@@ -4,30 +4,51 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Collections;
+using System.Diagnostics;
 
-namespace blackjack
+//Use DeckGenerator.generatedeck() to return a fresh deck of cards.
+
+
+
+namespace DeckOfCards
 {
     public class DeckGenerator
     {
-        public Card[] deck;
+        ////////////probably garbage: public Card[] newdeck { get; set; }
+            
         //Generate a deck of 52 cards
-        public void main()
+        public Card[] generatedeck()
             {
-            deck = new Card[52];
-            int index = 1;
+            var deck = new Card[52];
+            int index = 0;
                 foreach(string suit in new[] { "♤", "◇", "♧", "❤" })
-            {
-                for(int rank=1;rank<14;rank++)
                 {
-                    deck[index] = new Card();
-                    deck[index].Value(rank);
-                    deck[index].Face(rank, suit);
-                    index++;
+                    for(int rank=1;rank<14;rank++)
+                    {
 
+                    //test
+                    Console.WriteLine(index);
+                    //test
 
+                        deck[index] = new Card();
+                        deck[index].value = deck[index].Value(rank);
+                        deck[index].face = deck[index].Face(rank, suit);
+
+                        index++;
+                    }
                 }
+            
+               return deck;
+            
+
+                
             }
-            }
+
+
+
+
+
+
     }
     
 }
