@@ -59,7 +59,7 @@ namespace DeckOfCards
                 Console.Write(c.face + ", ");
                 //              val += c.value;
             }
-            Console.Write(dealer.secretcard.face);
+            Console.WriteLine(dealer.secretcard.face);
             Console.WriteLine("Value: " + dealer.secretvalue.ToString());
             Console.WriteLine("=======================================================");
 
@@ -72,6 +72,7 @@ namespace DeckOfCards
             {
                 Console.Write(c.face + ", ");
                 //                val += c.value;
+                Console.WriteLine();
 
             }
             Console.WriteLine("Value: " + player.value.ToString());

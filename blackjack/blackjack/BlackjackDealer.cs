@@ -40,8 +40,6 @@ namespace DeckOfCards
             index = deck.Length - 1;
             FirstTurn();
 
-            System.Threading.Thread.Sleep(10000000);
-
         }
 
         public void FirstTurn()
@@ -52,8 +50,8 @@ namespace DeckOfCards
             dealerhand.SecretCard(DealCard());
             playerhand.AddCard(DealCard());
             dealerhand.AddCard(DealCard());
-            render.blackjack(dealerhand, playerhand);
             CheckWin();
+
             input.blackjackTurn(this);
 
         }
@@ -96,7 +94,7 @@ namespace DeckOfCards
                 activegame = false;
                 win = "BUST";
             }
-            else if(dealerhand.value > 21)
+            else if(dealerhand.secretvalue > 21)
             {
                 activegame = false;
                 win = "WIN: DEALER BUST";
@@ -104,13 +102,13 @@ namespace DeckOfCards
             }
             else if(playerhand.stay == true && dealerhand.stay == true)
             {
-                if (playerhand.value > dealerhand.value)
+                if (playerhand.value > dealerhand.secretvalue)
                 {
                     activegame = false;
                     win = "WIN: HIGH HAND";
                     Wins++;
                 }
-                else if (dealerhand.value == playerhand.value)
+                else if (dealerhand.secretvalue == playerhand.value)
                 {
                     activegame = false;
                     win = "PUSH";
@@ -125,6 +123,11 @@ namespace DeckOfCards
             {
                 render.GameOver(dealerhand, playerhand, win);
                 input.GameOver(this);
+            }
+            else
+            {
+                render.blackjack(dealerhand, playerhand);
+                input.blackjackTurn(this);
             }
             
         }
