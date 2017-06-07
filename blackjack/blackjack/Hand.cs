@@ -9,38 +9,26 @@ namespace DeckOfCards
     public class Hand
     {
         public int handcount;
-        public Card[] hand;
+        public List<Card> hand;
         public int value;
 
         public void Init()
         {
             handcount = 0;
             value = 0;
-            hand = new Card[handcount];
+            hand = new List<Card>();
         }
 
-        public int Value()
+        public int Value(Card c)
         {
-            return value;
+            return value + c.value;
         }
 
         public void AddCard(Card c)
         {
             handcount++;
-            Card[] newhand = new Card[(handcount)];
-            if(hand != null)
-            {
-                foreach(Card c2 in hand)
-                {
-                    var i = 0;
-                    newhand[i] = hand[i];
-                }
-            }
-            
-            newhand[handcount] = c;
-            var temp = value;
-            value += temp + c.value;
-           
+            hand.Add(c);
+            value = Value(c);
         }
 
     }

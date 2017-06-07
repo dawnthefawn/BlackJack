@@ -25,7 +25,7 @@ namespace DeckOfCards
                 Console.Write(c.face + ", ");
   //              val += c.value;
             }
-            Console.WriteLine("Value: " + dealer.Value().ToString());
+            Console.WriteLine("Value: " + dealer.value.ToString());
             Console.WriteLine("=======================================================");
 
 
@@ -39,7 +39,7 @@ namespace DeckOfCards
 //                val += c.value;
 
             }
-            Console.WriteLine("Value: " + player.Value().ToString());
+            Console.WriteLine("Value: " + player.value.ToString());
 
         }
 

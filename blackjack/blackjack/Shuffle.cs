@@ -16,14 +16,6 @@ namespace DeckOfCards
         {
             int index = unshuffled.Length;
             Random r = new Random();
-            //            while(index>1)
-            //                {
-            //               var n = r.Next(index);
-            //               shuffled[shuffleindex] = unshuffled[n];
-            //             Array.Sort
-            //           shuffleindex++;
-            //         index--;
-            //       }
             return unshuffled.OrderBy(x => r.Next(0, index)).ToArray();
         }
 
