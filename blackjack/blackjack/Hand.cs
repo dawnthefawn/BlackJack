@@ -20,6 +20,7 @@ namespace DeckOfCards
             stay = false;
             handcount = 0;
             value = 0;
+
             hand = new List<Card>();
         }
 
@@ -33,13 +34,14 @@ namespace DeckOfCards
             handcount++;
             hand.Add(c);
             value = Value(c);
+            secretvalue = Value(c);
         }
 
         public void SecretCard(Card c)
         {
             handcount++;
             secretcard = c;
-            secretvalue = Value(c);
+            secretvalue = c.value;
         }
 
     }

@@ -10,29 +10,35 @@ namespace DeckOfCards
     {
         public void blackjackTurn(BlackjackDealer dealer)
         {
-            Console.WriteLine("What would you like to do? \n");
-            Console.WriteLine("(H)it, (S)tay, (T)able flip: ");
-            char input = Console.ReadKey().KeyChar;
-            switch (input)
+            if (dealer.playerhand.stay == false)
             {
+                Console.WriteLine("What would you like to do? \n");
+                Console.WriteLine("(H)it, (S)tay, (T)able flip: ");
+                char input = Console.ReadKey().KeyChar;
+                switch (input)
+                {
 
-                case 'h':
-                    dealer.Turn();
-                    break;
-                case 's':
-                    dealer.playerhand.stay = true;
-                    dealer.Turn();
-                    break;
-                case 't':
-                    dealer.game = false;
-                    break;
-                default:
-                    Console.WriteLine("Invalid input, try again");
-                    blackjackTurn(dealer);
-                    break;
+                    case 'h':
+                        dealer.Turn();
+                        break;
+                    case 's':
+                        dealer.playerhand.stay = true;
+                        dealer.Turn();
+                        break;
+                    case 't':
+                        System.Environment.Exit(1);
+                        break;
+                    default:
+                        Console.WriteLine("Invalid input, try again");
+                        blackjackTurn(dealer);
+                        break;
 
+                }
             }
-
+            else
+            {
+                dealer.Turn();
+            }
 
 
            
@@ -51,7 +57,7 @@ namespace DeckOfCards
                     dealer.Initialize();
                     break;
                 case 'n':
-                    dealer.game = false;
+                    System.Environment.Exit(1);
                     break;
                 default:
                     Console.WriteLine("Invalid input, try again");

@@ -37,7 +37,7 @@ namespace DeckOfCards
 
 
             deck = shuffle.shuffler(gen.generatedeck());
-            index = deck.Length - 1;
+            index = deck.Length;
             FirstTurn();
 
         }
@@ -65,6 +65,8 @@ namespace DeckOfCards
                     playerhand.AddCard(DealCard());
 
                 }
+
+
                 if(dealerhand.secretvalue < 17)
                 {
                     dealerhand.AddCard(DealCard());
@@ -82,13 +84,14 @@ namespace DeckOfCards
 
         public Card DealCard()
         {
-            var card = deck[index];
             index--;
+            var card = deck[index];
             return card;
         }
 
         public void CheckWin()
         {
+
             if(playerhand.value > 21)
             {
                 activegame = false;
