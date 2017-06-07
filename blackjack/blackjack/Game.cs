@@ -6,16 +6,16 @@ using System.Threading.Tasks;
 
 namespace DeckOfCards
 {
-    public class BlackJack
+    public class Game
     {
-        //last part
         public static void Main(string[] args)
         {
-            Console.WriteLine("Welcome to Blackjack!");
-
             BlackjackDealer dealer = new BlackjackDealer();
-            dealer.Initialize();
-
+            dealer.game = true;
+            while (dealer.game == true)
+            {
+                dealer.Initialize();
+            }
 
         }
 
