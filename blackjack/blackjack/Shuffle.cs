@@ -10,14 +10,24 @@ namespace DeckOfCards
 
     public class Shuffle
     {
-
+        private static Random random = new Random();
         //call using number of decks, if you want to play with 10 decks for some reason :D
-        public Card[] shuffler(Card[] unshuffled)
+        public Card[] shuffler(Card[] deck)
         {
-            int index = unshuffled.Length;
-            Random r = new Random();
-            return unshuffled.OrderBy(x => r.Next(0, index)).ToArray();
+            int n = deck.Length;
+            for(int i = n-1; i > 0; i--)
+            {
+                int index = random.Next(i);
+                Card card = deck[index];
+                deck[index] = deck[i];
+                deck[i] = card;
+            }
+
+            return deck;
+
+
         }
+
 
     }
 }

@@ -8,7 +8,7 @@ namespace DeckOfCards
 {
     public class Hand
     {
-        public int handcount;
+//        public int handcount;
         public List<Card> hand;
         public int value;
         public bool stay;
@@ -18,30 +18,26 @@ namespace DeckOfCards
         public void Init()
         {
             stay = false;
-            handcount = 0;
+//            handcount = 0;
             value = 0;
 
             hand = new List<Card>();
         }
 
-        public int Value(Card c)
-        {
-            return value + c.value;
-        }
 
         public void AddCard(Card c)
         {
-            handcount++;
+//            handcount++;
             hand.Add(c);
-            value = Value(c);
-            secretvalue = Value(c);
+            value += value + c.value;
+            secretvalue += secretvalue + c.value;
         }
 
         public void SecretCard(Card c)
         {
-            handcount++;
+ //           handcount++;
             secretcard = c;
-            secretvalue = c.value;
+            secretvalue += secretcard.value;
         }
 
     }

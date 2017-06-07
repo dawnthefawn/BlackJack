@@ -12,7 +12,7 @@ namespace DeckOfCards
     {
         public DeckGenerator gen;
         public Shuffle shuffle;
-        public Card[] deck;
+        public List<Card> deck;
         public int index;
         public Hand dealerhand;
         public Hand playerhand;
@@ -37,7 +37,7 @@ namespace DeckOfCards
 
 
             deck = shuffle.shuffler(gen.generatedeck());
-            index = deck.Length;
+            index = deck.Count;
             FirstTurn();
 
         }
@@ -84,9 +84,9 @@ namespace DeckOfCards
 
         public Card DealCard()
         {
-            index--;
-            var card = deck[index];
-            return card;
+            Card c = deck.First<Card>();
+            deck.Remove(deck.First<Card>());
+            return c;
         }
 
         public void CheckWin()

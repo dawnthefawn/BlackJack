@@ -15,25 +15,19 @@ namespace DeckOfCards
     public class DeckGenerator
     {
         ////////////probably garbage: public Card[] newdeck { get; set; }
-            
+
         //Generate a deck of 52 cards
+        public int index;
         public Card[] generatedeck()
             {
-            var deck = new Card[52];
-            int index = 0;
+                index = 0;
+                var deck = new Card[52];
                 foreach(string suit in new[] { "♤", "◇", "♧", "❤" })
                 {
                     for(int rank=1;rank<14;rank++)
                     {
-
-                    //test
-                    Console.WriteLine(index);
-                    //test
-
                         deck[index] = new Card();
                         deck[index].Init(rank, suit);
-
-                        index++;
                     }
                 }
             

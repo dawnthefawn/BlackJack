@@ -25,7 +25,7 @@ namespace DeckOfCards
                 Console.Write(c.face + ", ");
   //              val += c.value;
             }
-            Console.WriteLine("SECRET CARD: " + dealer.secretcard.face);
+            Console.WriteLine("SECRET CARD: " + dealer.secretcard.face + "SECRETVALUE: " + dealer.secretvalue.ToString());
             Console.WriteLine("Value: " + dealer.value.ToString());
             Console.WriteLine("=======================================================");
 

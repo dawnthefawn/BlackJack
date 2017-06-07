@@ -14,75 +14,49 @@ namespace DeckOfCards
         public string face;
         public int rank;
         public int value;
-        private string tag;
+        private static string tag;
 
         public void Init(int r, string s)
         {
-            value = 0;
             rank = r;
             suit = s;
-            value = Value(r);
-            face = Face(r, s);
+            value = setValue(r);
+            setTag(r);
+
+
+
         
         
         }
 
         //assign value to card using rank from DeckGenerator Class.
-       public int Value(int r)
+       private void setTag(int r)
         {
-                if (rank < 11)
-                {
-                    switch (rank.ToString())
+                    switch (r.ToString())
                     {
-                        case "1":
-                            tag = "A";
-                            break;
-                        default:
-                            tag = r.ToString();
-                            break;
-
-                    }
-                    value = rank;
-                }
-                else if (rank > 10)
-                {
-                    value = 10;
-                    switch (rank.ToString())
-                    {
+                        case "1": tag = "A"; break;
                         case "11": tag = "J"; break;
                         case "12": tag = "Q"; break;
                         case "13": tag = "K"; break;
+                        default:  tag = r.ToString(); break;
 
                     }
+            face = Face(tag, suit);
                 }
-            
-            return value;
+        
+
+       public int setValue(int r)
+        {
+        if(r > 9)
+            { return 10; }
+        else { return r; }
         }
 
-        //create the name of the card from the rank in the DeckGenerator class
-        //s represents the suit in DeckGenerator that we will pass when we call the card.
-        public string Face(int r, string s)
+    //create the name of the card from the rank in the DeckGenerator class
+    //s represents the suit in DeckGenerator that we will pass when we call the card.
+    public string Face(string t, string s)
         {
-            suit = s;
-            face = "";
-            switch(s)
-            {
-                //"♤","◇","♧","❤"
-                case "♤":
-                    face = tag + " of Spades";
-                    break;
-                case "◇":
-                    face = tag + " of Diamonds";
-                    break;
-                case "♧":
-                    face = tag + " of Clubs";
-                    break;
-                case "❤":
-                    face = tag + " of Hearts";
-                    break;      
-                default: 
-                    break;
-            }
+            string face = t + s;
             return face;
         }
 
