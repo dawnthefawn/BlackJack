@@ -15,12 +15,13 @@ namespace DeckOfCards
         public Card[] shuffler(Card[] deck)
         {
             int n = deck.Length;
-            for(int i = n-1; i > 0; i--)
+            for(int i = 0; i < n; i++)
             {
-                int index = random.Next(i);
+                int index = random.Next(i, n);
                 Card card = deck[index];
                 deck[index] = deck[i];
                 deck[i] = card;
+                Console.WriteLine(card.face);
             }
 
             return deck;

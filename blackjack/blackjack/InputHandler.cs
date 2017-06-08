@@ -15,6 +15,7 @@ namespace DeckOfCards
                 Console.WriteLine("What would you like to do? \n");
                 Console.WriteLine("(H)it, (S)tay, (T)able flip: ");
                 char input = Console.ReadKey().KeyChar;
+                Console.WriteLine();
                 switch (input)
                 {
 
@@ -47,10 +48,10 @@ namespace DeckOfCards
 
         public void GameOver(BlackjackDealer dealer)
         {
-
+            Console.WriteLine(dealer.Wins.ToString() + " wins so far." + "\n" + dealer.Losses.ToString() + " losses so far.");
             Console.WriteLine("Would you like to play again? Y/N");
-            Console.WriteLine(dealer.Wins.ToString() + " wins so far.");
             char input = Console.ReadKey().KeyChar;
+            Console.WriteLine();
             switch(input)
             {
                 case 'y':

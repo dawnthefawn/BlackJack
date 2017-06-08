@@ -14,51 +14,44 @@ namespace DeckOfCards
         public string face;
         public int rank;
         public int value;
-        private static string tag;
+        public string tag;
 
         public void Init(int r, string s)
         {
             rank = r;
             suit = s;
-            value = setValue(r);
-            setTag(r);
-
-
-
-        
-        
+            value = 0;
+            tag = "";
+            face = "";
         }
 
         //assign value to card using rank from DeckGenerator Class.
-       private void setTag(int r)
+       public string setTag()
         {
-                    switch (r.ToString())
+            string t = "";
+                    switch (rank.ToString())
                     {
-                        case "1": tag = "A"; break;
-                        case "11": tag = "J"; break;
-                        case "12": tag = "Q"; break;
-                        case "13": tag = "K"; break;
-                        default:  tag = r.ToString(); break;
+                        case "1": t = "A"; break;
+                        case "11": t = "J"; break;
+                        case "12": t = "Q"; break;
+                        case "13": t = "K"; break;
+                        default:  t = rank.ToString(); break;
 
                     }
-            face = Face(tag, suit);
+            return t ;
                 }
         
 
-       public int setValue(int r)
+       public int setValue()
         {
-        if(r > 9)
+        if(rank > 9)
             { return 10; }
-        else { return r; }
+        else { return rank; }
         }
 
-    //create the name of the card from the rank in the DeckGenerator class
-    //s represents the suit in DeckGenerator that we will pass when we call the card.
-    public string Face(string t, string s)
-        {
-            string face = t + s;
-            return face;
-        }
+        //create the name of the card from the rank in the DeckGenerator class
+        //s represents the suit in DeckGenerator that we will pass when we call the card.
+        public string Face() => tag + suit;
 
         //Initialize card, using rank and suit to call the assign functions.
 

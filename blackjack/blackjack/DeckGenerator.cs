@@ -14,34 +14,30 @@ namespace DeckOfCards
 {
     public class DeckGenerator
     {
-        ////////////probably garbage: public Card[] newdeck { get; set; }
-
-        //Generate a deck of 52 cards
         public int index;
         public Card[] generatedeck()
             {
                 index = 0;
                 var deck = new Card[52];
-                foreach(string suit in new[] { "♤", "◇", "♧", "❤" })
+
+                foreach (string suit in new[] { " of Spades", " of Diamonds", " of Clubs", " of Hearts" })
                 {
-                    for(int rank=1;rank<14;rank++)
+
+                    for (int rank=1;rank<14;rank++)
                     {
-                        deck[index] = new Card();
-                        deck[index].Init(rank, suit);
+                        Card c = new Card();
+                        c.Init(rank, suit);
+                        c.value = c.setValue();
+                        c.tag = c.setTag();
+                        c.face = c.Face();
+                        deck[index] = c;
+                        index++;
                     }
+
                 }
             
                return deck;
-            
-
-                
             }
-
-
-
-
-
-
     }
     
 }

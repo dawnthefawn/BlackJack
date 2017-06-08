@@ -12,7 +12,7 @@ namespace DeckOfCards
     {
         public DeckGenerator gen;
         public Shuffle shuffle;
-        public List<Card> deck;
+        public Card[] deck;
         public int index;
         public Hand dealerhand;
         public Hand playerhand;
@@ -22,7 +22,7 @@ namespace DeckOfCards
         public string win;
         public bool game;
         public int Wins;
-
+        public int Losses;
 
         public void Initialize()
         {
@@ -35,9 +35,8 @@ namespace DeckOfCards
             render = new Render();
             input = new InputHandler();
 
-
             deck = shuffle.shuffler(gen.generatedeck());
-            index = deck.Count;
+            index = deck.Length;
             FirstTurn();
 
         }
@@ -84,9 +83,12 @@ namespace DeckOfCards
 
         public Card DealCard()
         {
-            Card c = deck.First<Card>();
-            deck.Remove(deck.First<Card>());
-            return c;
+            if (index >= 0)
+            {
+                index--;
+                return deck[index];
+            }
+            else return null;
         }
 
         public void CheckWin()
@@ -96,6 +98,7 @@ namespace DeckOfCards
             {
                 activegame = false;
                 win = "BUST";
+                Losses++;
             }
             else if(dealerhand.secretvalue > 21)
             {
@@ -120,6 +123,7 @@ namespace DeckOfCards
                 {
                     activegame = false;
                     win = "LOSE: LOW HAND";
+                    Losses++;
                 }
             }
             if (activegame == false)

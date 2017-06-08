@@ -19,26 +19,19 @@ namespace DeckOfCards
             Console.WriteLine("Dealer Shows: ");
 
 
+
             foreach(Card c in dealerhand)
-            {
-           
-                Console.Write(c.face + ", ");
-  //              val += c.value;
+            {           
+                Console.Write(c.face + " ");
             }
-            Console.WriteLine("SECRET CARD: " + dealer.secretcard.face + "SECRETVALUE: " + dealer.secretvalue.ToString());
-            Console.WriteLine("Value: " + dealer.value.ToString());
-            Console.WriteLine("=======================================================");
-
-
+            Console.WriteLine("\n" + "Value: " + dealer.value + "\n" + "=======================================================");
 
 
             Console.WriteLine("Your Hand: ");
-//            val = 0;
+
             foreach (Card c in playerhand)
             {
-                Console.Write(c.face + ", ");
-//                val += c.value;
-
+                Console.Write(c.face + " ");
             }
             Console.WriteLine("Value: " + player.value.ToString());
 
@@ -57,25 +50,20 @@ namespace DeckOfCards
             foreach (Card c in dealerhand)
             {
 
-                Console.Write(c.face + ", ");
-                //              val += c.value;
+                Console.Write(c.face + " ");
+
             }
             Console.WriteLine(dealer.secretcard.face);
             Console.WriteLine("Value: " + dealer.secretvalue.ToString());
             Console.WriteLine("=======================================================");
-
-
-
-
             Console.WriteLine("Your Hand: ");
-            //            val = 0;
+
             foreach (Card c in playerhand)
             {
                 Console.Write(c.face + ", ");
-                //                val += c.value;
                 Console.WriteLine();
-
             }
+
             Console.WriteLine("Value: " + player.value.ToString());
             Console.WriteLine(win.ToString());
         }
